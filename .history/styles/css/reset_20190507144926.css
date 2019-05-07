@@ -91,7 +91,7 @@ img {
 li {
     list-style: none;
 }
-pre, code {
+pre {
     background: #272822; 
     color: #fff;
 }

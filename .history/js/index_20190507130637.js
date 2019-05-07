@@ -3,7 +3,8 @@
     var oWrap = document.getElementById("welcome_dialog");
     var oBtn = document.getElementById("go_home_btn");
     var oTimer = document.getElementById("timer");
-    var n = 10;
+    var n = 5;
+    var defaultN = 5;
 
     var SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
 
@@ -153,23 +154,17 @@
         count += 0.1;
 
     }
-    oTimer.innerHTML = n;
+
     var timer = setInterval(function () {
         n--;
         oTimer.innerHTML = n;
         if (n === 0) {
-            oWrap.style.opacity = 0;
-            oWrap.addEventListener('transitionend', transitionEndFn, false);
+            oWrap.style.display = 'none';
+        clearTimeout(timer);
         }
     }, 1000);
     oBtn.onclick = function () {
-        oWrap.style.opacity = 0;
-        oWrap.addEventListener('transitionend', transitionEndFn, false);
-    }
-
-    function transitionEndFn () {
-        oWrap.style.display = "none";
-        oWrap.style.opacity = 1;
+        oWrap.style.display = 'none';
         clearTimeout(timer);
     }
 })();

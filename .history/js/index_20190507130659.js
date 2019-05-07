@@ -153,23 +153,17 @@
         count += 0.1;
 
     }
-    oTimer.innerHTML = n;
+
     var timer = setInterval(function () {
         n--;
         oTimer.innerHTML = n;
         if (n === 0) {
-            oWrap.style.opacity = 0;
-            oWrap.addEventListener('transitionend', transitionEndFn, false);
+            oWrap.style.display = 'none';
+        clearTimeout(timer);
         }
     }, 1000);
     oBtn.onclick = function () {
-        oWrap.style.opacity = 0;
-        oWrap.addEventListener('transitionend', transitionEndFn, false);
-    }
-
-    function transitionEndFn () {
-        oWrap.style.display = "none";
-        oWrap.style.opacity = 1;
+        oWrap.style.display = 'none';
         clearTimeout(timer);
     }
 })();

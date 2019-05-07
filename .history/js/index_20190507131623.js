@@ -153,7 +153,7 @@
         count += 0.1;
 
     }
-    oTimer.innerHTML = n;
+
     var timer = setInterval(function () {
         n--;
         oTimer.innerHTML = n;
@@ -168,6 +168,7 @@
     }
 
     function transitionEndFn () {
+        console.log('ok');
         oWrap.style.display = "none";
         oWrap.style.opacity = 1;
         clearTimeout(timer);

@@ -153,12 +153,11 @@
         count += 0.1;
 
     }
-    oTimer.innerHTML = n;
+
     var timer = setInterval(function () {
         n--;
         oTimer.innerHTML = n;
         if (n === 0) {
-            oWrap.style.opacity = 0;
             oWrap.addEventListener('transitionend', transitionEndFn, false);
         }
     }, 1000);

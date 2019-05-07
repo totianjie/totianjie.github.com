@@ -153,7 +153,7 @@
         count += 0.1;
 
     }
-    oTimer.innerHTML = n;
+
     var timer = setInterval(function () {
         n--;
         oTimer.innerHTML = n;

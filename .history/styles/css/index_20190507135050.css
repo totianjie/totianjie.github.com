@@ -1,5 +1,4 @@
 .welcome-dialog {
-    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -46,10 +45,9 @@
     height: 100%;
     overflow: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 .app .iframe {
-    flex: 1;
     width: 100%;
     overflow: auto;
 }

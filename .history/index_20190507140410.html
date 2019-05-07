@@ -15,7 +15,7 @@
     <!-- 粒子 start -->
     <div class="welcome-dialog" id="welcome_dialog">
         <div class="button" id="go_home_btn">
-            <span>《《<span id="timer"></span>秒后进入首页》》</span>
+            <span>《《<span id="timer">5</span>秒后进入首页》》</span>
             点击进入首页
         </div>
     </div>
@@ -28,7 +28,7 @@
                 v-for="(item, index) in menuList"
                 :key="index"
             >
-                <span v-text="item.title"></span>
+                {{item.title}}
             </el-menu-item>
             <!-- <el-submenu index="2">
                 <template slot="title">我的工作台</template>
@@ -60,12 +60,11 @@
                 return { 
                     path: './pages/home.html',
                     menuList: [
-                        {path: './pages/home.html', title: '首页'},
                         {path: './pages/html.css/index.html', title: '我的工作台'},
                         {path: './pages/html.css/aa.html', title: '我的工作台1'}
                     ],
                     visible: false ,
-                    activeIndex: './pages/home.html',
+                    activeIndex: './pages/html.css/index.html',
                 }
             },
             mounted () {

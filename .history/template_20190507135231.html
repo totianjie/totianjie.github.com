@@ -5,29 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到 我的个人github</title>
-    <link rel="stylesheet" href="./../../styles/css/reset.css">
-    <link rel="stylesheet" href="./../../styles/css/base.css">
+    <link rel="stylesheet" href="./styles/css/reset.css">
     
     <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui@2.8.2/lib/theme-chalk/index.css">
+    <style>
+        .app {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            display: flex;
+        }
+        .app .left-menu {}
+        .app .iframe {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
-    <div id="app" class="app" v-cloak>
+    <div id="app" class="app">
         <div class="left-menu">
             <el-radio-group 
-                class="radio-group"
                 v-model="isCollapse" 
+                style="margin-bottom: 20px;"
                 size="mini"
             >
                 <el-radio-button :label="false">展开</el-radio-button>
                 <el-radio-button :label="true">收起</el-radio-button>
             </el-radio-group>
             <el-menu 
-                class="menu"
                 default-active="activeIndex"  
                 @open="handleOpen" 
                 @close="handleClose" 
-                @select="handleSelect"
                 :collapse="isCollapse"
             >
                 <el-menu-item 
@@ -41,7 +50,7 @@
             </el-menu>
             
         </div>
-        <iframe ref="iframe" :src="path" frameborder="0" class="iframe"></iframe>
+        <iframe ref="iframe" src="" frameborder="0" class="iframe"></iframe>
     </div>
     <!-- import Vue before Element -->
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
@@ -50,23 +59,24 @@
     <script>
         new Vue({
             el: '#app',
-            data: function() {
+                data: function() {
                 return { 
-                    path: '',
                     isCollapse: false,
                     menuList: [
-                        {path: './aa.html', title: 'test', icon: 'el-icon-location'},
-                        {path: './pages/html.css/aa.html', title: 'test2', icon: 'el-icon-location'},
+                        {path: './pages/html.css/index.html', title: '我的工123456作台', icon: 'el-icon-location'},
+                        {path: './pages/html.css/aa.html', title: '我的工作台1', icon: 'el-icon-location'}
                     ],
                     activeIndex: './pages/html.css/index.html',
                 }
             },
             mounted () {
+                this.$iframe = this.$refs.iframe;
             },
             methods: {
                 handleSelect(key, keyPath) {
+                    console.log(key, keyPath);
                     if (key) {
-                        this.path = key;
+                        this.$iframe.src = key;
                     }
                 },
                 handleOpen (key, keyPath) {},

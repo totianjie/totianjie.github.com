@@ -5,44 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>欢迎来到 我的个人github</title>
-    <link rel="stylesheet" href="./../../styles/css/reset.css">
-    <link rel="stylesheet" href="./../../styles/css/base.css">
+    <link rel="stylesheet" href="./styles/css/reset.css">
+    <link rel="stylesheet" href="./styles/css/base.css">
     
     <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui@2.8.2/lib/theme-chalk/index.css">
 </head>
 <body>
-    <div id="app" class="app" v-cloak>
-        <div class="left-menu">
-            <el-radio-group 
-                class="radio-group"
-                v-model="isCollapse" 
-                size="mini"
-            >
-                <el-radio-button :label="false">展开</el-radio-button>
-                <el-radio-button :label="true">收起</el-radio-button>
-            </el-radio-group>
-            <el-menu 
-                class="menu"
-                default-active="activeIndex"  
-                @open="handleOpen" 
-                @close="handleClose" 
-                @select="handleSelect"
-                :collapse="isCollapse"
-            >
-                <el-menu-item 
-                    :index="item.path" 
-                    v-for="(item, index) in menuList"
-                    :key="index"
-                >
-                    <i :class="item.icon"></i>
-                    <span slot="title" v-text="item.title"></span>
-                </el-menu-item>
-            </el-menu>
-            
-        </div>
-        <iframe ref="iframe" :src="path" frameborder="0" class="iframe"></iframe>
-    </div>
+    <div id="app" class="app">
+    </div>>
     <!-- import Vue before Element -->
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
     <!-- import JavaScript -->
@@ -50,7 +21,7 @@
     <script>
         new Vue({
             el: '#app',
-            data: function() {
+                data: function() {
                 return { 
                     path: '',
                     isCollapse: false,
