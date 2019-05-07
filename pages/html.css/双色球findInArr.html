@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+</head>
+<body>
+    <input type="button" value="切换随机" id="btn">
+    <br>
+    <span id="tx"></span>
+    <script>
+            function findInArr(arr,item){
+                for(var i=0; i<arr.length; i++){
+                    if(arr[i]==item){
+                        return true;
+                    }
+                }
+                return false; //可以不return   反正都是undefined
+            }
+    
+            function rnd(n,m){  //置造随机数
+                return Math.round(Math.random()*(m-n)+n);
+            }
+            var arr=[];
+    
+            while(arr.length<6){            //要多少个数
+                var n=rnd(1,36);
+    
+                if(!findInArr(arr,n)){      //判断去重
+                    arr.push(n);
+                }
+            }
+            var oTx = document.getElementById("tx");
+            var oBtn = document.getElementById("btn");
+            oTx.innerHTML = arr.join();
+            oBtn.onclick = function () {
+                var arr=[];
+    
+                while(arr.length<6){            //要多少个数
+                    var n=rnd(1,36);
+    
+                    if(!findInArr(arr,n)){      //判断去重
+                        arr.push(n);
+                    }
+                }
+                oTx.innerHTML = arr.join();
+            }
+        </script>
+</body>
+</html>

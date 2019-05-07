@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="" />
+<meta name="copyright" content="" />
+<meta name="description" content="" />
+<title></title>
+<style>
+*{ margin:0; padding:0;}
+#box1{ width:300px; height:300px; border:10px solid #ff0; background:#ccc; position:absolute; left:50%; margin-left:-150px; top:50%; margin-top:-150px; text-align:center;}
+#box1 img{ width:48px; height:60px; position:absolute; top:100px; left:50%; margin-left:-24px;}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box1');
+		var oImg=oBox.getElementsByTagName('img')[0];
+
+		//走
+		var step=0;  //走路
+		var fight=0; //攻击
+		var timer=null;
+		//走
+		function go(){
+		    timer=setInterval(function(){
+                step++;
+                oImg.src='0'+(step%3+1)+'.png';
+				//加1 是从零开始的   从1开始的话3%3也是零 所以会错
+			},200);
+		}
+		go();
+		//攻击
+		oBox.onclick=function(){
+		    clearInterval(timer);
+		    timer=setInterval(function(){
+		        fight++;
+		        oImg.src='fight0'+(fight%4+1)+'.png';
+				/*砍过几次后就清零定时器关   一开始走的函数开起*/
+                if(fight==12){
+                    fight=0;
+                    clearInterval(timer);
+                    go();
+                }
+			},30);
+
+
+		};
+
+	};
+</script>
+</head>
+
+<body>
+<p style="text-align: center; padding: 0 10px;">点一下让它砍起来^_^</p>
+<div id="box1">
+	<img src="03.png" id="img1">
+</div>
+</body>
+</html>
