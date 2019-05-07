@@ -1,0 +1,18 @@
+﻿.DS_Store
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+src/config.js
+config/index.js
+# Editor directories and files
+.idea
+.vscode
+*.history
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+config/index的副本.js
+src/config的副本.js
+src/main的副本.js
