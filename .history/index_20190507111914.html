@@ -59,8 +59,7 @@
                 data: function() {
                 return { 
                     menuList: [
-                        {path: './pages/html.css/index.html', title: '我的工作台'},
-                        {path: './pages/html.css/aa.html', title: '我的工作台1'}
+                        {path: './pages/html.css/index.html', title: '我的工作台'}
                     ],
                     visible: false ,
                     activeIndex: './pages/html.css/index.html',
@@ -73,7 +72,7 @@
                 handleSelect(key, keyPath) {
                     console.log(key, keyPath);
                     if (key) {
-                        this.$iframe.src = key;
+                        this.$refs.iframe.src = key;
                     }
                 }
             }

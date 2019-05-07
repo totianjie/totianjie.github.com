@@ -23,27 +23,22 @@
 
     <div id="app" class="app">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-            <el-menu-item 
-                :index="item.path" 
-                v-for="(item, index) in menuList"
-                :key="index"
-            >
-                {{item.title}}
-            </el-menu-item>
-            <!-- <el-submenu index="2">
+            <el-menu-item index="1">处理中心</el-menu-item>
+            <el-submenu index="2">
                 <template slot="title">我的工作台</template>
                 <el-menu-item index="2-1">选项1</el-menu-item>
                 <el-menu-item index="2-2">选项2</el-menu-item>
                 <el-menu-item index="2-3">选项3</el-menu-item>
-                <el-submenu index="2-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="2-4-1">选项1</el-menu-item>
-                    <el-menu-item index="2-4-2">选项2</el-menu-item>
-                    <el-menu-item index="2-4-3">选项3</el-menu-item>
-                </el-submenu>
-            </el-submenu> -->
+            <el-submenu index="2-4">
+                <template slot="title">选项4</template>
+                <el-menu-item index="2-4-1">选项1</el-menu-item>
+                <el-menu-item index="2-4-2">选项2</el-menu-item>
+                <el-menu-item index="2-4-3">选项3</el-menu-item>
+            </el-submenu>
+            </el-submenu>
+            <el-menu-item index="3" disabled>消息中心</el-menu-item>
+            <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
         </el-menu>
-        <iframe ref="iframe" src="" frameborder="0" class="iframe"></iframe>
     </div>
     
     <script src="./js/three/three.min.js"></script>
@@ -54,30 +49,21 @@
     <script src="./js/index.js"></script>
 
     <script>
-        new Vue({
-            el: '#app',
-                data: function() {
+            new Vue({
+              el: '#app',
+              data: function() {
                 return { 
-                    menuList: [
-                        {path: './pages/html.css/index.html', title: '我的工作台'},
-                        {path: './pages/html.css/aa.html', title: '我的工作台1'}
-                    ],
                     visible: false ,
-                    activeIndex: './pages/html.css/index.html',
+                    activeIndex: '1',
                 }
-            },
-            mounted () {
-                this.$iframe = this.$refs.iframe;
-            },
-            methods: {
-                handleSelect(key, keyPath) {
-                    console.log(key, keyPath);
-                    if (key) {
-                        this.$iframe.src = key;
-                    }
-                }
-            }
-        })
-    </script>
+              },
+              methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
+ 
+            })
+          </script>
 </body>
 </html>

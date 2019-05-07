@@ -43,7 +43,7 @@
                 </el-submenu>
             </el-submenu> -->
         </el-menu>
-        <iframe ref="iframe" src="" frameborder="0" class="iframe"></iframe>
+        <iframe src="" frameborder="0" class="iframe"></iframe>
     </div>
     
     <script src="./js/three/three.min.js"></script>
@@ -59,22 +59,15 @@
                 data: function() {
                 return { 
                     menuList: [
-                        {path: './pages/html.css/index.html', title: '我的工作台'},
-                        {path: './pages/html.css/aa.html', title: '我的工作台1'}
+                        {path: './pages/html.css/index.html', title: '我的工作台'}
                     ],
                     visible: false ,
-                    activeIndex: './pages/html.css/index.html',
+                    activeIndex: '1',
                 }
-            },
-            mounted () {
-                this.$iframe = this.$refs.iframe;
             },
             methods: {
                 handleSelect(key, keyPath) {
                     console.log(key, keyPath);
-                    if (key) {
-                        this.$iframe.src = key;
-                    }
                 }
             }
         })
